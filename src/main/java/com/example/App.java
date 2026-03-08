@@ -10,33 +10,24 @@ public class App {
 
         WebDriver driver = new ChromeDriver();
 
-        // Open website
-        driver.get("https://automationexercise.com/");
-        driver.manage().window().maximize();
+        // Open the website
+        driver.get("https://practicetestautomation.com/practice-test-login/");
 
-        // Wait for page to load
-        Thread.sleep(5000);
+        Thread.sleep(2000); // 2 second delay
 
-        // Close advertisement popup if it appears
-        try {
-            driver.findElement(By.cssSelector(".grippy-host")).click();
-        } catch (Exception e) {
-            System.out.println("Ad popup not found");
-        }
+        // Enter username
+        driver.findElement(By.id("username")).sendKeys("student");
 
-        Thread.sleep(3000);
+        Thread.sleep(2000); // delay
 
-        // Click first product "Add to cart" (Blue Top ₹500)
-        driver.findElement(By.xpath("(//a[contains(text(),'Add to cart')])[1]")).click();
+        // Enter password
+        driver.findElement(By.id("password")).sendKeys("Password123");
 
-        Thread.sleep(5000);
+        Thread.sleep(2000); // delay
 
-        // Close cart popup by clicking Continue Shopping
-        driver.findElement(By.xpath("//button[contains(text(),'Continue Shopping')]")).click();
+        // Click submit
+        driver.findElement(By.id("submit")).click();
 
-        System.out.println("Blue Top added to cart");
-
-        // Browser stays open (NO driver.quit())
-
+        Thread.sleep(3000); // wait after login
     }
 }
